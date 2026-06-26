@@ -1,0 +1,6 @@
+import axiosInstance from './axios';
+
+export const authApi = {
+  register: (data) => axiosInstance.post('/auth/register', data),
+  login: (data) => axiosInstance.post('/auth/login', data),
+};
