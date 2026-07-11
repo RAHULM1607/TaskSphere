@@ -152,7 +152,7 @@ const KanbanBoard = () => {
 
   return (
     <div className="p-4 md:p-6">
-      {/* Header */}
+      {/* Header with ADD TASK BUTTON - FIXED */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
         <div>
           <Link to={`/projects/${projectId}`} className="text-primary-600 hover:text-primary-700 flex items-center gap-2 text-sm mb-1">
@@ -161,9 +161,11 @@ const KanbanBoard = () => {
           <h1 className="text-2xl font-bold text-gray-800">{project.name}</h1>
           <p className="text-sm text-gray-500">Kanban Board</p>
         </div>
+        
+        {/* ✅ ADD TASK BUTTON - NOW WITH DIRECT TAILWIND CLASSES (NOT btn-primary) */}
         <button
           onClick={() => openTaskForm()}
-          className="btn-primary flex items-center gap-2 whitespace-nowrap"
+          className="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-200"
         >
           <FaPlus /> Add Task
         </button>
@@ -172,7 +174,7 @@ const KanbanBoard = () => {
       {/* Kanban Board */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 overflow-x-auto">
         {columns.map((column) => (
-          <div key={column.id} className="min-w-[200px] flex-1">
+          <div key={column.id} className="min-w-50 flex-1">
             <div className={`${column.color} rounded-t-xl p-3`}>
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold text-gray-700">{column.title}</h3>
